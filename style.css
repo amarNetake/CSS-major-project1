@@ -1,0 +1,482 @@
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Suse';
+}
+
+html, body{
+     width: 100%;
+     height: 100%;
+     background-color: #F8F8F8;
+}
+
+#main{
+     width: 100%;
+     height: 100%;
+     position: relative;
+     padding-top: 0.1px; /*To detach it's top side with top side of navbar so that margin property of navbar work properly as intended*/
+}
+
+/* --------------------------- Nav section --------------------------- */
+#nav{
+     height: 10vh;
+     width: 100%;
+     position: relative;
+     /* background-color: aquamarine; */
+     margin-top: 2.5vmax;
+     border-top: 2px solid #000;
+     border-bottom: 2px solid #000;
+     display: grid;
+     grid-template-columns: 30% 10% 20% 25% 15%;
+     /* align-items: center;
+     justify-content: space-between; */
+}
+
+#nav h1{
+     /* background-color:coral; */
+     font-family: 'monument';
+     letter-spacing: -2.9px;
+     text-transform: lowercase;
+     display: flex;
+     align-items: center;
+     justify-content: flex-start;
+     padding-left: 25%;
+     font-size: 3.0vmax;
+     position: relative;
+}
+
+#nav h1 sup{
+     font-size: 1.2vmax;
+     color: #999;
+     padding-left: 4px;
+     transform: translateY(-80%);
+}
+
+#nav h1::after{
+     content: 'model management';
+     color: #999;
+     font-family: suse;
+     position: absolute;
+     font-size: 1vmax;
+     letter-spacing: 1.2px;
+     font-weight: 500;
+     bottom: 4%;
+     left: calc(25% + 45px);
+}
+
+
+#nav h2{
+     /* background-color: chartreuse; */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-right: 2px solid black;
+     font-size: 1.4rem;
+     font-weight: 500;
+}
+
+
+#nav h2:last-of-type{
+     /* background-color: fuchsia; */
+     border: unset;
+     padding-right: 30%;
+}
+
+/* ---------------------------Center section ---------------------------*/
+
+#center{
+     width: 100%;
+     height: 80%;
+     padding: 3.0vw 10.0vw;
+     /* background-color:darkorange; */
+     position: relative;
+}
+
+#content{
+     height: 100%;
+     width: 100%;
+     background-color:deeppink;
+     position: relative;
+}
+
+#content video{
+     height: 100%;
+     width: 100%;
+     object-fit: cover;
+}
+
+#overlay{
+     /* background-color: darkorchid; */
+     height: 50%;
+     width: 100%;
+     position: absolute;
+     bottom: 0;
+     padding: 3vw;
+}
+
+#overlay .row1{
+     /* background-color: yellow; */
+     color: #fff;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding-bottom: 1vh;
+}
+
+#overlay .row1 h1{
+     font-family: 'monument';
+     font-size: 3vw;
+     mix-blend-mode:difference;
+}
+
+#overlay .row1 h2{
+     font-size: 1.5vw;
+     font-weight: 400;
+     padding: 1.5vmax;
+     position: relative;
+     /* background-color: aquamarine; */
+     border-radius: 50%;
+     border: 4px solid rgba(255, 255, 255, 0.5); /* Light transparent border */
+}
+
+#overlay .row1 h2::after{
+     content: '';
+     height: 100%;
+     width: 100%;
+     position: absolute;
+     /* background-color: pink; */
+     left:0;
+     top: 0;
+     border-radius: 50%;
+     border: 4px solid white;
+     transform: translate(-4px,-4px); /*Since on applying border to this, it will shift about the border width from it's position so we need to reposition it*/
+     border-color: white transparent transparent transparent; /*Setting only top border to be visible rest all borders are made transparent */
+     animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+     0% {
+       transform: translate(-4px, -4px) rotate(0deg);
+     }
+     100% {
+       transform: translate(-4px, -4px) rotate(360deg);
+     }
+}
+
+#overlay .row2{
+     height: 60%;
+     border-top: 2px solid #fff;
+     /* background-color: cadetblue; */
+     color: #fff;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     /* padding-bottom: 4vw; */
+}
+
+#overlay .row2 img{
+     height: 30%;
+     width: 4%;
+}
+
+
+
+/*--------------------------- infinite image scroll section ---------------------------*/
+#infinite-scroll{
+     height: 30%;
+     width: 100%;
+     /* background-color: yellow; */
+     display: flex;
+     align-items: center;
+     overflow-x: hidden;
+     overflow-y: hidden;
+     position: relative;
+}
+
+#infinite-scroll .container{
+     height: 100%;
+     width: auto;
+     gap: 20px;
+     padding-left: 20px;
+     display: flex;
+     align-items: center;
+     animation-name: infinite-scroller-anime;
+     animation-duration: 13s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+     animation-direction: normal;
+}
+
+/* #infinite-scroll::-webkit-scrollbar{
+     background-color: transparent;
+} */
+
+#infinite-scroll .container img{
+     /* display: none; */
+     flex-shrink: 0;
+     height: 70%;
+     width: 10vmax;
+     object-fit: cover;
+     border-radius: 50%;
+     background-color: pink;
+}
+
+@keyframes infinite-scroller-anime{
+     0%{
+          transform: translateX(0%);
+     }
+     100%{
+          transform: translateX(-100%);
+     }
+}
+
+/* --------------------------- Alphabets section --------------------------- */
+#alphabets{
+     width: 100%;
+     height: 12%;
+     border-top: 2px solid #333;
+     border-bottom: 2px solid #333;
+     text-transform: uppercase;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 1.6vmax;
+}
+
+#alphabets h4{
+     flex-shrink: 0;
+     margin-right: 15%;
+     font-size: 3vh;
+     font-style: italic;
+     font-weight: 500;
+     padding-bottom: 3px;
+     transform: translateY(3px); 
+     border-bottom: 2px solid black;
+     /* background-color: pink; */
+     /* line-height: 20px; */
+     /* text-decoration: underline; */
+}
+
+#alphabets h5{
+     flex-shrink: 0;
+     font-weight: 600;
+     font-size: 2.1vh;
+     transition: all 0.1s;
+}
+
+#alphabets h5:hover{
+     height: 3vw;
+     width: 3vw;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border: 2px solid black;
+     border-radius: 60%;
+}
+
+#alphabets h5:nth-of-type(5n+1){
+     color: rgba(0,0,0,0.4);
+}
+
+/* --------------------------- Section2 Section --------------------------- */
+
+#section2{
+     height: 60vmax;
+     width: 100%;
+     /* background-color: aquamarine; */
+     display: flex;
+     justify-content: center;
+     gap: 1vh;
+     /* align-items: center; */
+     padding: 2vmax 6vmax;
+}
+
+#section2 .ele1{
+     height: 100%;
+     width: 50%;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+}
+
+#section2 .ele1 img{
+     height: 90%;
+     width: 90%;
+     object-fit: cover;
+     object-position: center;
+}
+
+#section2 .ele1 h1{
+     font-size: 4vw;
+}
+
+#section2 .ele2{
+     height: 56vmax;
+     width: 50%;
+     /* background-color: yellow; */
+     display: flex;
+     flex-direction: column;
+}
+
+#section2 .ele2 .text-content{
+     /* background-color: pink; */
+     height: 30%;
+     width: 90%;
+     display: flex;
+     align-items: flex-start;
+     padding-top: 1vh;
+     justify-content: space-between;
+
+}
+
+#section2 .ele2 img{
+     height: 73%;
+     width: 90%;
+     object-fit: cover;
+     object-position: center;
+}
+
+/* --------------------------- Section5 Section --------------------------- */
+
+#section5{
+     height: 100%;
+     width: 100%;
+     /* background-color: pink; */
+     position: relative;
+     padding: 5vw 4vw;
+}
+
+#section5>h1{
+     font-family: 'monument';
+     text-align: center;
+     text-transform: uppercase;
+     font-size: 3vmax;
+     margin-bottom: 5%;
+}
+
+#section5 .elem{
+     width: 100%;
+     height: 18%;
+     border-top: 2px solid black;
+     /* background-color: yellow; */
+     position: relative;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 0 3%;
+}
+
+#section5 .elem:last-of-type{
+     border-bottom: 2px solid black;
+}
+
+#section5 .elem h4{
+     font-size: 1vw;
+     font-weight: 500;
+}
+
+#section5 .elem img{
+     height: 90%;
+     width: 7.3vmax;
+     margin-right: 2vmax;
+     object-fit: cover;
+     border-radius: 50%;
+     opacity: 0;
+     transition: all ease 0.3s;
+}
+
+#section5 .elem:hover img{
+     animation-name: image-hover-anime;
+     animation-duration: 1s;
+     animation-timing-function: linear;
+     animation-fill-mode:forwards;
+     z-index: 2;
+}
+
+
+@keyframes image-hover-anime{
+     0%{
+          opacity:0;
+          transform: translateX(0) scale(1);
+     }
+     50%{
+          opacity: 0.8;
+          transform: translateX(50%) scale(1);
+     }
+     100%{
+          opacity: 1;
+          transform: translateX(50%) scale(1.5);
+     }
+}
+
+#section5 .elem .child3{
+     width: 40%;
+}
+
+#section5 .elem .child3 h1{
+     font-size: 2.2vmax;
+     font-weight: 500;
+}    
+
+#section5 .elem .child3 h5{
+     font-size: 0.8vmax;
+     font-weight: 600;
+}  
+
+/* --------------------------- Section9 Section --------------------------- */
+
+#section9{
+     /* height: 12vh; */
+     width: 100%;
+     /* background-color: deeppink; */
+     border: 2px solid black;
+     border-left: none;
+     border-right: none;
+     /* border-color: black transparent; */
+     display: flex;
+     /* justify-content: space-between;  */
+     gap: 1.3vmax;
+     white-space: nowrap;
+     overflow-x: hidden;
+     overflow-y: hidden;
+     padding: 1.3vmax;
+     padding-left: 0;
+     padding-right: 1.3vmax;
+}
+
+#section9 h1{
+     /* display: inline-block; */
+     /* background-color: yellow; */
+     /* word-spacing: 1.3vmax; */
+     flex-shrink: 0;
+     font-family: 'monument';
+     font-weight: 500;
+     text-transform: uppercase;
+     font-size: 3.5vmax;
+     -webkit-text-stroke: 2px black;
+     color: transparent;
+     letter-spacing: 2px;
+     margin-right: 16px;
+     animation-name: scrollbar-anime;
+     animation-duration: 4s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+}
+
+@keyframes scrollbar-anime {
+     from{
+          transform: translateX(0);
+     }
+     to{
+          transform: translateX(-100%);
+     }
+}
+
+
+/* --------------------------- Footer Section --------------------------- */
+
+#footer{
+     height: 8%;
+     width: 100%;
+}
